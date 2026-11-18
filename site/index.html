@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#19362c">
     <meta name="description" content="Una dashboard di supporto decisionale per leggere vendite, costi, scadenze e margini del tuo ristorante.">
-    <title>Una visione chiara del tuo ristorante</title>
+    <title>Ristorazione — una visione chiara dell’attività</title>
     <link rel="stylesheet" href="styles.css">
     <script src="app.js" defer></script>
   </head>
@@ -36,12 +36,12 @@
 
         <nav class="primary-nav" id="primary-navigation" aria-label="Navigazione principale">
           <a href="#modello">Il modello</a>
-          <a href="#demo">Anteprima</a>
-          <a href="#personalizza">Su misura</a>
+          <a href="#strumenti">Come funziona</a>
+          <a href="#aree">Cosa comprende</a>
         </nav>
 
-        <a class="header-cta" href="#demo">
-          Esplora la demo
+        <a class="header-cta" href="demo.html">
+          Visita la demo
           <svg viewBox="0 0 20 20" aria-hidden="true">
             <path d="M4 10h11M10 5l5 5-5 5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
           </svg>
@@ -58,8 +58,8 @@
             <h1>Il tuo ristorante.<br><em>Una visione intera.</em></h1>
             <p class="hero-description">Vendite, costi, scadenze e margini: i numeri che hai già, letti insieme per aiutarti a capire come sta andando l’attività.</p>
             <div class="hero-actions">
-              <a class="button button-light" href="#demo">
-                Guarda la demo interattiva
+              <a class="button button-light" href="demo.html">
+                Visita la demo completa
                 <svg viewBox="0 0 20 20" aria-hidden="true">
                   <path d="M4 10h11M10 5l5 5-5 5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
                 </svg>
@@ -69,45 +69,33 @@
             <p class="hero-footnote"><span class="status-dot status-dot-demo"></span> Prototipo dimostrativo · nessun dato reale collegato</p>
           </div>
 
-          <div class="hero-visual" data-reveal aria-label="Anteprima illustrativa della dashboard">
+          <div class="hero-visual" data-reveal>
             <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
             <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
             <div class="hero-note hero-note-top">
-              <span class="note-icon" aria-hidden="true">↗</span>
-              <span><strong>Più contesto</strong><small>per decidere con calma</small></span>
+              <span class="note-icon" aria-hidden="true">i</span>
+              <span><strong>Supporto, non gestionale</strong><small>i tuoi strumenti restano al loro posto</small></span>
             </div>
-            <div class="hero-dashboard">
-              <div class="hero-dashboard-top">
-                <span class="hero-dashboard-label"><span class="status-dot"></span> PANORAMICA · DEMO</span>
-                <span class="hero-period">OGGI</span>
+            <div class="demo-gateway">
+              <div class="gateway-top">
+                <span class="gateway-kicker"><span class="status-dot status-dot-demo"></span> PROTOTIPO INTERATTIVO</span>
+                <span class="gateway-arrow" aria-hidden="true">↗</span>
               </div>
-              <div class="hero-revenue">
-                <span>FATTURATO GIORNALIERO</span>
-                <div><strong>2.460 €</strong><span class="hero-change">+8,2%</span></div>
-                <small>rispetto al servizio di confronto · esempio</small>
+              <div class="gateway-art" aria-hidden="true">
+                <span class="gateway-art-line gateway-art-line-one"></span>
+                <span class="gateway-art-line gateway-art-line-two"></span>
+                <span class="gateway-art-line gateway-art-line-three"></span>
+                <span class="gateway-art-orbit"></span>
+                <span class="gateway-art-seal">3<br><small>ORIZZONTI</small></span>
               </div>
-              <div class="hero-bars" aria-hidden="true">
-                <span style="--bar-height: 28%"></span>
-                <span style="--bar-height: 39%"></span>
-                <span style="--bar-height: 61%"></span>
-                <span style="--bar-height: 43%"></span>
-                <span style="--bar-height: 33%"></span>
-                <span style="--bar-height: 68%"></span>
-                <span class="hero-bar-highlight" style="--bar-height: 92%"></span>
-                <span style="--bar-height: 55%"></span>
-              </div>
-              <div class="hero-chart-axis"><span>PRANZO</span><span>CENA</span></div>
-              <div class="hero-dashboard-bottom">
-                <div class="hero-small-stat">
-                  <span>FOOD COST</span>
-                  <strong>28,4%</strong>
-                </div>
-                <div class="hero-small-stat">
-                  <span>COPERTI</span>
-                  <strong>86</strong>
-                </div>
-                <span class="status-pill status-good"><i></i> IN LINEA</span>
-              </div>
+              <p class="gateway-overline">UNA FINESTRA SUL LOCALE</p>
+              <h2>Tutti i segnali.<br><em>Un solo quadro.</em></h2>
+              <p class="gateway-description">Vendite, costi, scadenze, margini e scorte: esplora le aree della dashboard.</p>
+              <a class="gateway-link" href="demo.html">
+                Visita la demo
+                <span aria-hidden="true">↗</span>
+              </a>
+              <div class="gateway-footer"><span>Giorno</span><i></i><span>Mese</span><i></i><span>Anno</span></div>
             </div>
             <div class="hero-note hero-note-bottom">
               <span class="note-ring" aria-hidden="true"><span></span></span>
@@ -187,169 +175,39 @@
         </div>
       </section>
 
-      <section class="demo-section section-pad" id="demo">
-        <div class="demo-backdrop" aria-hidden="true"></div>
-        <div class="container demo-container">
-          <div class="section-heading demo-heading" data-reveal>
-            <p class="eyebrow"><span class="eyebrow-mark"></span> ANTEPRIMA INTERATTIVA</p>
-            <h2>Tre orizzonti.<br><em>Una lettura più chiara.</em></h2>
-            <p>Prova a cambiare periodo: gli indicatori e il grafico si aggiornano con numeri inventati, solo per mostrare il funzionamento.</p>
-          </div>
-
-          <div class="demo-frame" data-reveal>
-            <div class="demo-frame-top">
-              <span class="demo-caption"><span class="status-dot status-dot-demo"></span> PROTOTIPO · DATI SIMULATI</span>
-              <span class="demo-hint">Seleziona un periodo per esplorare</span>
+      <section class="demo-invitation section-pad" id="demo">
+        <div class="container">
+          <div class="demo-invitation-card" data-reveal>
+            <div class="demo-invitation-copy">
+              <p class="eyebrow eyebrow-light"><span class="eyebrow-mark"></span> LA DASHBOARD, DA ESPLORARE</p>
+              <h2>Un locale.<br><em>Tutti i segnali.</em></h2>
+              <p>Apri la demo e passa dalla panoramica ai dettagli: vendite, costi, scadenze, margini e magazzino in un’unica vista.</p>
+              <a class="button button-light" href="demo.html">
+                Visita la demo
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M4 10h11M10 5l5 5-5 5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+                </svg>
+              </a>
+              <p class="demo-invitation-note"><span class="status-dot status-dot-demo"></span> DATI SIMULATI · NESSUNA INTEGRAZIONE ATTIVA</p>
             </div>
 
-            <div class="dashboard-window">
-              <div class="dashboard-heading">
-                <div>
-                  <p class="dashboard-kicker">RISTORANTE DEMO <span>·</span> VISTA D’INSIEME</p>
-                  <h3>Il locale, in un colpo d’occhio</h3>
-                </div>
-                <div class="period-switch" role="group" aria-label="Seleziona il periodo dimostrativo">
-                  <button class="period-button is-active" type="button" data-period="day" aria-pressed="true">Giorno</button>
-                  <button class="period-button" type="button" data-period="month" aria-pressed="false">Mese</button>
-                  <button class="period-button" type="button" data-period="year" aria-pressed="false">Anno</button>
-                </div>
-              </div>
-
-              <div class="dashboard-context">
-                <span id="period-context">Un servizio · esempio dimostrativo</span>
-                <span class="freshness"><span class="freshness-dot"></span> Aggiornamento di esempio</span>
-              </div>
-
-              <div class="metric-grid">
-                <article class="metric-card metric-card-primary">
-                  <div class="metric-card-label"><span>Fatturato</span><span class="metric-symbol" aria-hidden="true">↗</span></div>
-                  <strong class="metric-value" id="revenue-value" data-current="2460">2.460 €</strong>
-                  <span class="metric-foot"><span id="revenue-change">+0%</span> <span id="revenue-change-label">vs confronto demo</span></span>
-                </article>
-                <article class="metric-card">
-                  <div class="metric-card-label"><span>Coperti</span><span class="metric-symbol metric-symbol-soft" aria-hidden="true">◌</span></div>
-                  <strong class="metric-value" id="covers-value" data-current="86">86</strong>
-                  <span class="metric-foot">clienti serviti · demo</span>
-                </article>
-                <article class="metric-card">
-                  <div class="metric-card-label"><span>Ordini</span><span class="metric-symbol metric-symbol-soft" aria-hidden="true">⌁</span></div>
-                  <strong class="metric-value" id="orders-value" data-current="64">64</strong>
-                  <span class="metric-foot">ordini registrati · demo</span>
-                </article>
-                <article class="metric-card">
-                  <div class="metric-card-label"><span>Scontrino medio</span><span class="metric-symbol metric-symbol-soft" aria-hidden="true">€</span></div>
-                  <strong class="metric-value" id="average-value" data-current="38.4375">38,44 €</strong>
-                  <span class="metric-foot">fatturato ÷ ordini · demo</span>
-                </article>
-              </div>
-
-              <div class="dashboard-panels">
-                <section class="dashboard-panel chart-panel" aria-labelledby="chart-title">
-                  <div class="panel-heading">
-                    <div>
-                      <p class="panel-kicker">ANDAMENTO</p>
-                      <h4 id="chart-title">Fatturato per fascia oraria</h4>
-                    </div>
-                    <span class="panel-unit">valori demo</span>
-                  </div>
-                  <div class="chart-scroll">
-                    <div class="chart-plot" role="img" aria-labelledby="chart-title chart-summary">
-                      <div class="chart-guides" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-                      <div class="chart-bars" id="chart-bars" aria-hidden="true"></div>
-                    </div>
-                    <div class="chart-labels" id="chart-labels" aria-hidden="true"></div>
-                  </div>
-                  <p class="chart-summary" id="chart-summary">Anteprima dimostrativa delle vendite per fascia oraria.</p>
-                </section>
-
-                <section class="dashboard-panel cost-panel" aria-labelledby="cost-title">
-                  <div class="panel-heading">
-                    <div>
-                      <p class="panel-kicker">INCIDENZA SUI RICAVI</p>
-                      <h4 id="cost-title">Le voci da tenere d’occhio</h4>
-                    </div>
-                    <span class="panel-unit">demo</span>
-                  </div>
-                  <div class="cost-list">
-                    <div class="cost-row">
-                      <div class="cost-row-heading"><span>Materie prime</span><strong id="food-cost-value">28,4%</strong></div>
-                      <div class="cost-track"><span class="cost-fill cost-fill-food" id="food-cost-fill"></span></div>
-                    </div>
-                    <div class="cost-row">
-                      <div class="cost-row-heading"><span>Personale</span><strong id="staff-cost-value">32,1%</strong></div>
-                      <div class="cost-track"><span class="cost-fill cost-fill-staff" id="staff-cost-fill"></span></div>
-                    </div>
-                    <div class="cost-row">
-                      <div class="cost-row-heading"><span>Beverage</span><strong id="beverage-cost-value">18,6%</strong></div>
-                      <div class="cost-track"><span class="cost-fill cost-fill-drink" id="beverage-cost-fill"></span></div>
-                    </div>
-                  </div>
-                  <div class="cost-note"><span class="cost-note-mark" aria-hidden="true">i</span> Un indicatore utile solo se definizioni e dati sono coerenti.</div>
-                </section>
-              </div>
-
-              <div class="signal-grid">
-                <article class="signal-card">
-                  <span class="signal-icon signal-icon-calendar" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <rect x="4" y="6" width="16" height="14" rx="2" stroke="currentColor" stroke-width="1.5"></rect>
-                      <path d="M8 4v4M16 4v4M4 10h16" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path>
-                    </svg>
-                  </span>
-                  <div><span>SCADENZE FORNITORI</span><strong id="due-value">3.480 €</strong><small id="due-description">entro 7 giorni · demo</small></div>
-                </article>
-                <article class="signal-card">
-                  <span class="signal-icon signal-icon-budget" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M5 19V11M12 19V5M19 19v-8" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
-                    </svg>
-                  </span>
-                  <div><span>BUDGET MATERIE PRIME</span><strong id="budget-value">81%</strong><small>utilizzato nel periodo · demo</small></div>
-                </article>
-                <article class="signal-card">
-                  <span class="signal-icon signal-icon-stock" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="m12 3 9 5v8l-9 5-9-5V8l9-5Z" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"></path>
-                      <path d="m3.5 8 8.5 5 8.5-5M12 13v8" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"></path>
-                    </svg>
-                  </span>
-                  <div><span>SCORTE DA VERIFICARE</span><strong id="stock-value">4</strong><small id="stock-description">referenze sotto minimo · demo</small></div>
-                </article>
-              </div>
-            </div>
-          </div>
-
-          <div class="demo-footnote"><span class="demo-footnote-star" aria-hidden="true">*</span> I valori sono inventati: non sono benchmark, obiettivi consigliati o dati di un ristorante reale.</div>
-
-          <div class="threshold-card" id="personalizza" data-reveal>
-            <div class="threshold-copy">
-              <p class="eyebrow"><span class="eyebrow-mark"></span> IL SEMAFORO, CON LE TUE REGOLE</p>
-              <h3>La soglia non è uguale<br>per tutti i locali.</h3>
-              <p>Sposta il target demo del food cost e guarda cambiare il semaforo. Nella piattaforma reale, soglie e obiettivi si concordano con il titolare.</p>
-            </div>
-            <div class="threshold-control">
-              <div class="threshold-control-top">
-                <label for="food-target">Obiettivo food cost <span class="demo-tag">SOGLIA DEMO</span></label>
-                <output class="threshold-output" id="food-target-output" for="food-target">30%</output>
-              </div>
-              <input id="food-target" type="range" min="24" max="36" value="30" step="1" aria-describedby="threshold-rules">
-              <div class="range-labels"><span>24%</span><span>36%</span></div>
-              <div class="threshold-rules" id="threshold-rules">
-                <span class="rule-green">Verde ≤ <b id="green-limit">30%</b></span>
-                <span class="rule-yellow">Giallo ≤ <b id="yellow-limit">34%</b></span>
-                <span class="rule-red">Rosso oltre</span>
-              </div>
-              <div class="threshold-result">
-                <span class="threshold-result-label">Food cost demo <strong id="threshold-current-value">28,4%</strong></span>
-                <span class="status-pill status-good" id="threshold-status" role="status" aria-live="polite"><i></i><span id="threshold-status-text">IN LINEA</span></span>
-              </div>
-              <p class="threshold-disclaimer">Regola illustrativa: in un progetto reale formula e soglie si validano sui dati e sugli obiettivi del locale.</p>
+            <div class="demo-invitation-index">
+              <p class="invitation-index-label">DENTRO LA DEMO</p>
+              <ol class="invitation-list">
+                <li><span>01</span><div><strong>Panoramica</strong><small>Priorità del periodo</small></div></li>
+                <li><span>02</span><div><strong>Vendite e servizio</strong><small>Coperti · ordini · fasce</small></div></li>
+                <li><span>03</span><div><strong>Costi e budget</strong><small>Sei macro-categorie</small></div></li>
+                <li><span>04</span><div><strong>Liquidità e scadenze</strong><small>Pagamenti · incassi · rate</small></div></li>
+                <li><span>05</span><div><strong>Food cost e margini</strong><small>Sprechi · piatti · soglie</small></div></li>
+                <li><span>06</span><div><strong>Magazzino</strong><small>Sottoscorta · scadenze</small></div></li>
+              </ol>
+              <div class="invitation-periods"><span>Giorno</span><i></i><span>Mese</span><i></i><span>Anno</span></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="scope-section section-pad">
+      <section class="scope-section section-pad" id="strumenti">
         <div class="container scope-grid">
           <div class="scope-heading" data-reveal>
             <p class="eyebrow"><span class="eyebrow-mark"></span> NON UN ALTRO GESTIONALE</p>
@@ -395,13 +253,13 @@
         </div>
       </section>
 
-      <section class="personal-section section-pad">
+      <section class="personal-section section-pad" id="aree">
         <div class="container personal-grid">
           <div class="personal-note" data-reveal>
             <p class="eyebrow eyebrow-light"><span class="eyebrow-mark"></span> DAL MODELLO BASE AL TUO LOCALE</p>
             <h2>Prima la struttura.<br><em>Poi, le tue priorità.</em></h2>
             <p>Il punto di partenza raccoglie i segnali più utili per la ristorazione. La personalizzazione mette a fuoco ciò che serve a te: categorie, periodi, indicatori e soglie.</p>
-            <a class="button button-outline-light" href="#demo">Prova a cambiare una soglia <span aria-hidden="true">↗</span></a>
+            <a class="button button-outline-light" href="demo.html">Esplora tutte le sezioni <span aria-hidden="true">↗</span></a>
           </div>
           <div class="personal-list" data-reveal>
             <div class="personal-list-item">
@@ -429,7 +287,7 @@
           <p class="eyebrow"><span class="eyebrow-mark"></span> IL PRIMO PASSO È SEMPLICE</p>
           <h2>Partiamo dai numeri<br><em>che hai già.</em></h2>
           <p>Si parte da ciò che il locale usa oggi, si sceglie cosa vale la pena leggere e si costruisce una vista condivisa. Senza cambiare il modo in cui lavori.</p>
-          <a class="button button-dark" href="#demo">Rivedi la demo <span aria-hidden="true">↑</span></a>
+          <a class="button button-dark" href="demo.html">Visita la demo <span aria-hidden="true">↗</span></a>
           <span class="closing-stamp" aria-hidden="true">CHIARO<br>OGNI<br>GIORNO</span>
         </div>
       </section>

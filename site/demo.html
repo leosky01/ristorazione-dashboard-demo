@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#19382e">
+    <meta name="description" content="Demo simulata della dashboard di supporto decisionale per la ristorazione.">
+    <title>Dashboard demo — Ristorazione</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="dashboard.js" defer></script>
+  </head>
+  <body class="dashboard-page">
+    <a class="skip-link" href="#dashboard-main">Vai alla dashboard</a>
+
+    <div class="dashboard-app">
+      <aside class="dashboard-sidebar" aria-label="Indice della dashboard">
+        <a class="dashboard-brand" href="index.html" aria-label="Torna alla presentazione">
+          <span class="dashboard-brand-mark" aria-hidden="true">R</span>
+          <span><strong>RISTORAZIONE</strong><small>SUPPORTO DECISIONALE</small></span>
+        </a>
+
+        <div class="sidebar-demo-label"><span></span> DEMO · DATI SIMULATI</div>
+
+        <nav class="dashboard-nav" aria-label="Sezioni dashboard">
+          <p class="dashboard-nav-label">IL LOCALE</p>
+          <a class="is-active" href="#panoramica" data-section-link><span>00</span>Panoramica</a>
+          <a href="#vendite" data-section-link><span>01</span>Vendite e servizio</a>
+          <a href="#costi" data-section-link><span>02</span>Costi e budget</a>
+          <p class="dashboard-nav-label">APPROFONDIMENTI</p>
+          <a href="#liquidita" data-section-link><span>03</span>Liquidità e scadenze</a>
+          <a href="#margini" data-section-link><span>04</span>Food cost e margini</a>
+          <a href="#magazzino" data-section-link><span>05</span>Magazzino</a>
+        </nav>
+
+        <div class="sidebar-note">
+          <span class="sidebar-note-mark" aria-hidden="true">i</span>
+          <p><strong>Supporto, non gestionale</strong><small>Ordini, pagamenti, turni e movimenti restano nei sistemi esistenti.</small></p>
+        </div>
+
+        <a class="sidebar-back-link" href="index.html">← Torna alla presentazione</a>
+      </aside>
+
+      <div class="dashboard-workspace">
+        <header class="dashboard-topbar">
+          <div class="topbar-context">
+            <span class="topbar-overline">RISTORANTE DEMO</span>
+            <strong id="period-context">Giornata di esempio · nessun dato reale</strong>
+          </div>
+          <div class="topbar-actions">
+            <div class="period-switch" role="group" aria-label="Seleziona il periodo dimostrativo">
+              <button class="period-button is-active" type="button" data-period="day" aria-pressed="true">Giorno</button>
+              <button class="period-button" type="button" data-period="month" aria-pressed="false">Mese</button>
+              <button class="period-button" type="button" data-period="year" aria-pressed="false">Anno</button>
+            </div>
+            <span class="topbar-demo-badge"><i></i> DATI SIMULATI</span>
+            <a class="topbar-back" href="index.html">Presentazione <span aria-hidden="true">↗</span></a>
+          </div>
+        </header>
+
+        <main class="dashboard-main" id="dashboard-main">
+          <div class="dashboard-notice" role="note">
+            <strong>Prototipo dimostrativo.</strong>
+            <span>Valori, date, scadenze e soglie sono inventati: non rappresentano un ristorante reale né benchmark consigliati.</span>
+          </div>
+
+          <section class="dashboard-section overview-section" id="panoramica" aria-labelledby="overview-title">
+            <div class="section-heading-row">
+              <div>
+                <p class="dashboard-eyebrow">IL QUADRO DEL LOCALE</p>
+                <h1 id="overview-title">Una visione, <em>in chiaro.</em></h1>
+                <p class="section-subtitle">I segnali principali del periodo selezionato, con esempi di soglie R/Y/G.</p>
+              </div>
+              <span class="period-stamp" id="period-stamp">OGGI · DEMO</span>
+            </div>
+
+            <div class="kpi-grid">
+              <article class="kpi-card kpi-card-revenue">
+                <div class="kpi-card-top"><span id="revenue-period-title">Fatturato del giorno</span><span class="kpi-index">01</span></div>
+                <strong data-bind="revenue">2.460 €</strong>
+                <small><span class="trend-positive" data-bind="revenue-change">+8,2%</span> · confronto demo</small>
+              </article>
+              <article class="kpi-card">
+                <div class="kpi-card-top"><span>Coperti / clienti</span><span class="kpi-index">02</span></div>
+                <strong data-bind="covers">86</strong>
+                <small>persone servite · demo</small>
+              </article>
+              <article class="kpi-card">
+                <div class="kpi-card-top"><span>Ordini</span><span class="kpi-index">03</span></div>
+                <strong data-bind="orders">64</strong>
+                <small>ordini registrati · demo</small>
+              </article>
+              <article class="kpi-card">
+                <div class="kpi-card-top"><span>Scontrino medio</span><span class="kpi-index">04</span></div>
+                <strong data-bind="average-ticket">38,44 €</strong>
+                <small>fatturato ÷ ordini · demo</small>
+              </article>
+              <article class="kpi-card kpi-card-status">
+                <div class="kpi-card-top"><span>Food cost</span><span class="status-chip status-good" data-status-for="food-cost"><i></i><span data-status-text="food-cost">IN LINEA</span></span></div>
+                <strong data-bind="food-cost">28,4%</strong>
+                <small>consumo ingredienti · demo</small>
+              </article>
+              <article class="kpi-card kpi-card-status">
+                <div class="kpi-card-top"><span>Beverage cost</span><span class="status-chip status-good" data-status-for="beverage-cost"><i></i><span data-status-text="beverage-cost">IN LINEA</span></span></div>
+                <strong data-bind="beverage-cost">18,6%</strong>
+                <small>incidenza bevande · demo</small>
+              </article>
+              <article class="kpi-card kpi-card-status">
+                <div class="kpi-card-top"><span>Costo personale</span><span class="status-chip status-warning" data-status-for="personnel-cost"><i></i><span data-status-text="personnel-cost">DA OSSERVARE</span></span></div>
+                <strong data-bind="personnel-cost">32,1%</strong>
+                <small>incidenza sui ricavi · demo</small>
+              </article>
+            </div>
+
+            <div class="overview-grid">
+              <article class="dashboard-card trend-card">
+                <div class="card-heading">
+                  <div><p class="card-kicker">ANDAMENTO</p><h2 id="overview-chart-title">Fatturato nel periodo</h2></div>
+                  <span class="card-meta">valori simulati</span>
+                </div>
+                <div class="overview-chart" id="overview-chart" role="img" aria-labelledby="overview-chart-title overview-chart-summary">
+                  <div class="overview-chart-column" aria-hidden="true"><div class="overview-bar-track"><span class="overview-bar-fill" style="height:43%"></span></div><small>12</small></div>
+                  <div class="overview-chart-column" aria-hidden="true"><div class="overview-bar-track"><span class="overview-bar-fill" style="height:66%"></span></div><small>13</small></div>
+                  <div class="overview-chart-column" aria-hidden="true"><div class="overview-bar-track"><span class="overview-bar-fill" style="height:40%"></span></div><small>14</small></div>
+                  <div class="overview-chart-column" aria-hidden="true"><div class="overview-bar-track"><span class="overview-bar-fill" style="height:24%"></span></div><small>15</small></div>
+                  <div class="overview-chart-column" aria-hidden="true"><div class="overview-bar-track"><span class="overview-bar-fill" style="height:31%"></span></div><small>18</small></div>
+                  <div class="overview-chart-column" aria-hidden="true"><div class="overview-bar-track"><span class="overview-bar-fill" style="height:59%"></span></div><small>19</small></div>
+                  <div class="overview-chart-column" aria-hidden="true"><div class="overview-bar-track"><span class="overview-bar-fill" style="height:52%"></span></div><small>20</small></div>
+                  <div class="overview-chart-column" aria-hidden="true"><div class="overview-bar-track"><span class="overview-bar-fill" style="height:25%"></span></div><small>21</small></div>
+                </div>
+                <p class="chart-caption" id="overview-chart-summary">Andamento dimostrativo, non collegato a sistemi reali.</p>
+              </article>
+
+              <article class="dashboard-card priority-card">
+                <div class="card-heading">
+                  <div><p class="card-kicker">DA TENERE D’OCCHIO</p><h2>Segnali demo</h2></div>
+                  <span class="signal-count">03</span>
+                </div>
+                <ul class="priority-list">
+                  <li><span class="priority-mark priority-mark-warning"></span><div><strong>Pagamenti prossimi</strong><small>3 fatture fornitori entro 7 giorni</small></div><span class="priority-value">3.480 €</span></li>
+                  <li><span class="priority-mark priority-mark-alert"></span><div><strong>Budget oltre soglia</strong><small id="overrun-summary-text">Marketing e Altro da osservare</small></div><span class="priority-value" id="overrun-count">2 voci</span></li>
+                  <li><span class="priority-mark priority-mark-warning"></span><div><strong>Scorte da verificare</strong><small>Referenze sotto minimo o in scadenza</small></div><span class="priority-value">4 prodotti</span></li>
+                </ul>
+                <p class="card-footnote">Gli avvisi sono esempi: non generano ordini o pagamenti.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="dashboard-section" id="vendite" aria-labelledby="sales-title">
+            <div class="section-heading-row">
+              <div>
+                <p class="dashboard-eyebrow">01 · VENDITE E SERVIZIO</p>
+                <h2 id="sales-title">Chi arriva.<br><em>Cosa funziona.</em></h2>
+                <p class="section-subtitle">Volumi, scontrino e fatturato per momento del servizio e area del locale.</p>
+              </div>
+              <span class="section-number">01</span>
+            </div>
+
+            <div class="sales-stat-row">
+              <div><span>Coperti / clienti</span><strong data-bind="covers">86</strong><small>esempio periodo</small></div>
+              <div><span>Ordini</span><strong data-bind="orders">64</strong><small>esempio periodo</small></div>
+              <div><span>Scontrino medio</span><strong data-bind="average-ticket">38,44 €</strong><small>fatturato ÷ ordini</small></div>
+              <div><span id="sales-revenue-label">Fatturato del giorno</span><strong data-bind="revenue">2.460 €</strong><small id="sales-period-label">oggi · demo</small></div>
+            </div>
+
+            <div class="chart-pair">
+              <article class="dashboard-card">
+                <div class="card-heading"><div><p class="card-kicker">QUANDO</p><h3>Fatturato per fascia oraria</h3></div><span class="card-meta">simulato</span></div>
+                <div class="bar-list" data-chart-group="slot">
+                  <div class="bar-row" data-chart-key="pranzo"><div class="bar-row-label"><span>Pranzo</span><strong data-chart-value>870 €</strong></div><div class="bar-track" role="progressbar" aria-label="Fatturato pranzo demo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35"><span data-chart-fill style="width:35%"></span></div></div>
+                  <div class="bar-row" data-chart-key="aperitivo"><div class="bar-row-label"><span>Aperitivo</span><strong data-chart-value>390 €</strong></div><div class="bar-track" role="progressbar" aria-label="Fatturato aperitivo demo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="16"><span data-chart-fill style="width:16%"></span></div></div>
+                  <div class="bar-row" data-chart-key="cena"><div class="bar-row-label"><span>Cena</span><strong data-chart-value>1.200 €</strong></div><div class="bar-track" role="progressbar" aria-label="Fatturato cena demo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="49"><span data-chart-fill style="width:49%"></span></div></div>
+                </div>
+              </article>
+              <article class="dashboard-card">
+                <div class="card-heading"><div><p class="card-kicker">DOVE</p><h3>Fatturato per categoria</h3></div><span class="card-meta">cucina · sala · bar</span></div>
+                <div class="bar-list" data-chart-group="category">
+                  <div class="bar-row" data-chart-key="cucina"><div class="bar-row-label"><span>Cucina</span><strong data-chart-value>1.410 €</strong></div><div class="bar-track" role="progressbar" aria-label="Fatturato cucina demo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="57"><span data-chart-fill style="width:57%"></span></div></div>
+                  <div class="bar-row" data-chart-key="sala"><div class="bar-row-label"><span>Sala</span><strong data-chart-value>420 €</strong></div><div class="bar-track" role="progressbar" aria-label="Fatturato sala demo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="17"><span data-chart-fill style="width:17%"></span></div></div>
+                  <div class="bar-row" data-chart-key="bar"><div class="bar-row-label"><span>Bar</span><strong data-chart-value>630 €</strong></div><div class="bar-track" role="progressbar" aria-label="Fatturato bar demo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="26"><span data-chart-fill style="width:26%"></span></div></div>
+                </div>
+              </article>
+            </div>
+            <p class="section-disclaimer">Le definizioni di coperto, ordine, fascia oraria e categoria vanno allineate ai dati esportabili dal POS.</p>
+          </section>
+
+          <section class="dashboard-section" id="costi" aria-labelledby="costs-title">
+            <div class="section-heading-row">
+              <div>
+                <p class="dashboard-eyebrow">02 · COSTI E BUDGET</p>
+                <h2 id="costs-title">Le voci principali.<br><em>Senza sorprese.</em></h2>
+                <p class="section-subtitle">Consuntivo e budget illustrativi per le sei macro-categorie proposte.</p>
+              </div>
+              <span class="section-number">02</span>
+            </div>
+
+            <article class="dashboard-card table-card">
+              <div class="card-heading">
+                <div><p class="card-kicker">COSTI PER MACRO-CATEGORIA</p><h3>Consuntivo vs budget</h3></div>
+                <span class="card-meta">soglie R/Y/G demo</span>
+              </div>
+              <div class="table-scroll">
+                <table class="data-table costs-table">
+                  <thead><tr><th scope="col">Categoria</th><th scope="col">Consuntivo</th><th scope="col">Budget demo</th><th scope="col">Scostamento</th><th scope="col">Utilizzo</th><th scope="col">Segnale</th></tr></thead>
+                  <tbody>
+                    <tr data-cost-row="personale"><th scope="row">Personale</th><td data-cost-actual>790 €</td><td data-cost-budget>840 €</td><td data-cost-variance>-50 €</td><td><div class="table-meter"><span data-cost-meter style="width:94%"></span></div><small data-cost-ratio>94%</small></td><td><span class="status-chip status-warning" data-cost-status><i></i><span>DA OSSERVARE</span></span></td></tr>
+                    <tr data-cost-row="materie"><th scope="row">Materie prime / ingredienti</th><td data-cost-actual>560 €</td><td data-cost-budget>620 €</td><td data-cost-variance>-60 €</td><td><div class="table-meter"><span data-cost-meter style="width:90%"></span></div><small data-cost-ratio>90%</small></td><td><span class="status-chip status-warning" data-cost-status><i></i><span>DA OSSERVARE</span></span></td></tr>
+                    <tr data-cost-row="locali"><th scope="row">Affitto / locali</th><td data-cost-actual>105 €</td><td data-cost-budget>105 €</td><td data-cost-variance>0 €</td><td><div class="table-meter"><span data-cost-meter style="width:100%"></span></div><small data-cost-ratio>100%</small></td><td><span class="status-chip status-warning" data-cost-status><i></i><span>DA OSSERVARE</span></span></td></tr>
+                    <tr data-cost-row="utenze"><th scope="row">Utenze</th><td data-cost-actual>58 €</td><td data-cost-budget>60 €</td><td data-cost-variance>-2 €</td><td><div class="table-meter"><span data-cost-meter style="width:97%"></span></div><small data-cost-ratio>97%</small></td><td><span class="status-chip status-warning" data-cost-status><i></i><span>DA OSSERVARE</span></span></td></tr>
+                    <tr data-cost-row="marketing"><th scope="row">Marketing / Social Media</th><td data-cost-actual>45 €</td><td data-cost-budget>40 €</td><td data-cost-variance>+5 €</td><td><div class="table-meter"><span data-cost-meter style="width:100%"></span></div><small data-cost-ratio>113%</small></td><td><span class="status-chip status-alert" data-cost-status><i></i><span>OLTRE BUDGET</span></span></td></tr>
+                    <tr data-cost-row="altro"><th scope="row">Altro</th><td data-cost-actual>62 €</td><td data-cost-budget>55 €</td><td data-cost-variance>+7 €</td><td><div class="table-meter"><span data-cost-meter style="width:100%"></span></div><small data-cost-ratio>113%</small></td><td><span class="status-chip status-alert" data-cost-status><i></i><span>OLTRE BUDGET</span></span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="table-footnote">Soglie illustrative: verde sotto il 90%, giallo fino al 100%, rosso oltre budget. Da configurare con il titolare.</p>
+            </article>
+          </section>
+
+          <section class="dashboard-section" id="liquidita" aria-labelledby="liquidity-title">
+            <div class="section-heading-row">
+              <div>
+                <p class="dashboard-eyebrow">03 · CREDITO, LIQUIDITÀ E SCADENZE</p>
+                <h2 id="liquidity-title">Quanto esce.<br><em>Quando esce.</em></h2>
+                <p class="section-subtitle">Una vista degli impegni e degli incassi previsti, senza eseguire pagamenti o registrazioni.</p>
+              </div>
+              <span class="section-number">03</span>
+            </div>
+
+            <div class="liquidity-summary">
+              <article class="liquidity-card"><span>Fatture da pagare</span><strong>3.480 €</strong><small>Debiti verso fornitori · demo</small></article>
+              <article class="liquidity-card"><span>Fatture da incassare</span><strong>2.050 €</strong><small>Crediti verso clienti · demo</small></article>
+              <article class="liquidity-card"><span>Prossime scadenze</span><strong>3.480 €</strong><small>Pagamenti entro 7 giorni · demo</small></article>
+              <article class="liquidity-card"><span>Uscite straordinarie</span><strong>480 €</strong><small>Spese impreviste · demo</small></article>
+            </div>
+
+            <div class="liquidity-grid">
+              <article class="dashboard-card table-card">
+                <div class="card-heading"><div><p class="card-kicker">DEBITI VERSO FORNITORI</p><h3>Fatture da pagare</h3></div><span class="card-meta">termini d’esempio</span></div>
+                <div class="table-scroll">
+                  <table class="data-table">
+                    <thead><tr><th scope="col">Fornitore</th><th scope="col">Scadenza</th><th scope="col">Termine</th><th scope="col">Importo</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">Macelleria Rossi</th><td>21 nov · demo</td><td>30 giorni</td><td>1.240 €</td></tr>
+                      <tr><th scope="row">Ortofrutta dei Colli</th><td>23 nov · demo</td><td>30 giorni</td><td>680 €</td></tr>
+                      <tr><th scope="row">Bevande Nord</th><td>25 nov · demo</td><td>30 giorni</td><td>1.560 €</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="table-footnote">L’acquisto non coincide con il pagamento: l’esempio conserva la scadenza concordata.</p>
+              </article>
+
+              <article class="dashboard-card table-card">
+                <div class="card-heading"><div><p class="card-kicker">CREDITI VERSO CLIENTI</p><h3>Fatture da incassare</h3></div><span class="card-meta">se presenti</span></div>
+                <div class="table-scroll">
+                  <table class="data-table">
+                    <thead><tr><th scope="col">Cliente</th><th scope="col">Scadenza</th><th scope="col">Importo</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">Catering Aurora</th><td>20 nov · demo</td><td>1.200 €</td></tr>
+                      <tr><th scope="row">Eventi Corte</th><td>25 nov · demo</td><td>850 €</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="table-footnote">Esempi B2B: la sezione si adatta se il locale non ha crediti clienti rilevanti.</p>
+              </article>
+            </div>
+
+            <div class="deadline-grid">
+              <article class="deadline-card deadline-card-highlight">
+                <p class="card-kicker">PAGAMENTI PROSSIMI</p><h3>Scadenze imminenti</h3>
+                <ul><li><span>Fornitori · entro 7 giorni</span><strong>3.480 €</strong></li><li><span>Tasse e contributi · 16 dic</span><strong>2.240 €</strong></li></ul>
+              </article>
+              <article class="deadline-card">
+                <p class="card-kicker">RATE IN SCADENZA</p><h3>Abbonamenti e finanziamenti</h3>
+                <ul><li><span>Software e servizi · 22 nov</span><strong>385 €</strong></li><li><span>Finanziamento attrezzatura · 30 nov</span><strong>740 €</strong></li></ul>
+              </article>
+              <article class="deadline-card">
+                <p class="card-kicker">USCITE STRAORDINARIE</p><h3>Spese impreviste</h3>
+                <ul><li><span>Riparazione frigo · esempio</span><strong>480 €</strong></li><li><span>Registrazione da verificare</span><strong>1 voce</strong></li></ul>
+              </article>
+            </div>
+
+            <article class="dashboard-card overrun-card">
+              <div class="card-heading"><div><p class="card-kicker">CATEGORIE OLTRE IL LIMITE</p><h3>Budget superato</h3></div><span class="status-chip status-alert"><i></i> ESEMPIO</span></div>
+              <div class="overrun-items">
+                <div data-overrun-row="marketing"><span>Marketing / Social Media</span><strong><span data-overrun-value>+5 €</span> <small>vs budget demo</small></strong></div>
+                <div data-overrun-row="utenze"><span>Utenze</span><strong><span data-overrun-value>+0 €</span> <small>vs budget demo</small></strong></div>
+                <div data-overrun-row="altro"><span>Altro</span><strong><span data-overrun-value>+7 €</span> <small>vs budget demo</small></strong></div>
+              </div>
+            </article>
+          </section>
+
+          <section class="dashboard-section" id="margini" aria-labelledby="margin-title">
+            <div class="section-heading-row">
+              <div>
+                <p class="dashboard-eyebrow">04 · FOOD COST E MARGINI</p>
+                <h2>Dal costo al piatto.<br><em>Con le definizioni giuste.</em></h2>
+                <p class="section-subtitle">Incidenze, sprechi e margine di contribuzione: indicatori dimostrativi, da validare sui dati.</p>
+              </div>
+              <span class="section-number">04</span>
+            </div>
+
+            <div class="ratio-grid">
+              <article class="ratio-card"><div><span>Food cost</span><span class="status-chip status-good" data-status-for="food-cost"><i></i><span data-status-text="food-cost">IN LINEA</span></span></div><strong data-bind="food-cost">28,4%</strong><small>consumi ingredienti ÷ ricavi cucina · demo</small></article>
+              <article class="ratio-card"><div><span>Beverage cost</span><span class="status-chip status-good" data-status-for="beverage-cost"><i></i><span data-status-text="beverage-cost">IN LINEA</span></span></div><strong data-bind="beverage-cost">18,6%</strong><small>consumi bevande ÷ ricavi bar · demo</small></article>
+              <article class="ratio-card"><div><span>Costo personale</span><span class="status-chip status-warning" data-status-for="personnel-cost"><i></i><span data-status-text="personnel-cost">DA OSSERVARE</span></span></div><strong data-bind="personnel-cost">32,1%</strong><small>costo personale ÷ ricavi · demo</small></article>
+              <article class="ratio-card ratio-card-waste"><div><span>Sprechi alimentari</span><span class="ratio-mark" aria-hidden="true">↘</span></div><strong data-bind="waste-amount">126 €</strong><small><span data-bind="waste-weight">2,3 kg</span> · valore stimato demo</small></article>
+            </div>
+
+            <div class="threshold-panel">
+              <div>
+                <p class="card-kicker">SOGLIA PERSONALIZZABILE</p>
+                <h3>Prova il semaforo food cost</h3>
+                <p>È una regola illustrativa: soglia e formula si concordano con il titolare, non sono un benchmark di settore.</p>
+              </div>
+              <div class="threshold-demo">
+                <div class="threshold-heading"><label for="food-target">Obiettivo demo</label><output id="food-target-output" for="food-target">30%</output></div>
+                <input id="food-target" type="range" min="24" max="36" value="30" step="1" aria-describedby="threshold-description">
+                <div class="threshold-legend" id="threshold-description"><span class="legend-good">Verde ≤ target</span><span class="legend-warning">Giallo fino a +4</span><span class="legend-alert">Rosso oltre</span></div>
+                <div class="threshold-current"><span>Food cost del periodo <strong data-bind="food-cost">28,4%</strong></span><span class="status-chip status-good" id="food-threshold-status" role="status" aria-live="polite"><i></i><span>IN LINEA</span></span></div>
+              </div>
+            </div>
+
+            <article class="dashboard-card table-card dish-margin-card">
+              <div class="card-heading"><div><p class="card-kicker">MARGINE UNITARIO</p><h3>Margine per piatto</h3></div><span class="card-meta">ingredienti da ricetta · demo</span></div>
+              <div class="table-scroll">
+                <table class="data-table">
+                  <thead><tr><th scope="col">Piatto</th><th scope="col">Prezzo menu</th><th scope="col">Costo ingredienti</th><th scope="col">Margine di contribuzione</th><th scope="col">Incidenza</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row">Tagliatelle al ragù</th><td>15,00 €</td><td>3,80 €</td><td class="margin-value">11,20 €</td><td>74,7%</td></tr>
+                    <tr><th scope="row">Risotto ai funghi</th><td>16,00 €</td><td>4,55 €</td><td class="margin-value">11,45 €</td><td>71,6%</td></tr>
+                    <tr><th scope="row">Polpo e patate</th><td>18,00 €</td><td>7,80 €</td><td class="margin-value">10,20 €</td><td>56,7%</td></tr>
+                    <tr><th scope="row">Tiramisù</th><td>7,50 €</td><td>1,70 €</td><td class="margin-value">5,80 €</td><td>77,3%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="table-footnote">Margine di contribuzione sul costo ingredienti, non utile netto: non include personale, struttura, imposte o altri costi.</p>
+            </article>
+          </section>
+
+          <section class="dashboard-section" id="magazzino" aria-labelledby="stock-title">
+            <div class="section-heading-row">
+              <div>
+                <p class="dashboard-eyebrow">05 · MAGAZZINO</p>
+                <h2>Scorte e scadenze.<br><em>Segnali da verificare.</em></h2>
+                <p class="section-subtitle">La dashboard evidenzia sotto-scorta, eccedenze e prossime scadenze: non effettua riordini.</p>
+              </div>
+              <span class="section-number">05</span>
+            </div>
+
+            <div class="stock-grid">
+              <article class="dashboard-card table-card">
+                <div class="card-heading"><div><p class="card-kicker">PRODOTTI DA RIORDINARE</p><h3>Sottoscorta</h3></div><span class="status-chip status-warning"><i></i> 3 DA VERIFICARE</span></div>
+                <div class="table-scroll">
+                  <table class="data-table">
+                    <thead><tr><th scope="col">Prodotto</th><th scope="col">Disponibile</th><th scope="col">Scorta minima demo</th><th scope="col">Segnale</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">Mozzarella fior di latte</th><td>2,0 kg</td><td>5,0 kg</td><td><span class="status-chip status-alert"><i></i> SOTTO SCORTA</span></td></tr>
+                      <tr><th scope="row">Basilico fresco</th><td>0,5 kg</td><td>1,5 kg</td><td><span class="status-chip status-warning"><i></i> DA RIORDINARE</span></td></tr>
+                      <tr><th scope="row">Farina tipo 1</th><td>4,0 kg</td><td>8,0 kg</td><td><span class="status-chip status-warning"><i></i> DA RIORDINARE</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </article>
+
+              <article class="dashboard-card table-card">
+                <div class="card-heading"><div><p class="card-kicker">ECCEDENZE / SCADENZE</p><h3>Da utilizzare o gestire</h3></div><span class="status-chip status-warning"><i></i> ESEMPIO</span></div>
+                <div class="stock-alert-list">
+                  <div><span class="stock-alert-icon">01</span><p><strong>Ricotta fresca</strong><small>Scadenza tra 2 giorni · 3 confezioni</small></p><span class="stock-alert-action">Da verificare</span></div>
+                  <div><span class="stock-alert-icon">02</span><p><strong>Purea di zucca</strong><small>Eccedenza stimata · 6 porzioni</small></p><span class="stock-alert-action">Da utilizzare</span></div>
+                  <div><span class="stock-alert-icon">03</span><p><strong>Birra stagionale</strong><small>Rotazione lenta · 12 bottiglie</small></p><span class="stock-alert-action">Da proporre</span></div>
+                </div>
+              </article>
+            </div>
+
+            <div class="closing-note"><strong>Il gestionale resta al suo posto.</strong> Riordini, carichi, scarichi e aggiornamenti delle giacenze continuano a essere registrati negli strumenti operativi del locale.</div>
+          </section>
+
+          <footer class="dashboard-footer">
+            <span>RISTORAZIONE · SUPPORTO DECISIONALE</span>
+            <span>Concept dimostrativo · valori inventati · nessuna integrazione attiva</span>
+            <a href="index.html">Torna alla presentazione ↑</a>
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
